@@ -305,6 +305,27 @@ void check_rotation()
     
 }
 
+
+bool unique_characters(string ustr)
+{
+    // Function to check if a given string has unique characters without using additional data structures
+    //1. sort the characters in the string
+    //2. check adjacent values
+    //3. if equal adjacent values, then return true else false
+    
+    sort(ustr.begin(), ustr.end());
+    
+    size_t len = ustr.length();
+    for(int i=0; i<len-1 ; i++)
+    {
+        if(ustr[i] == ustr[i+1])
+        {
+            return false;
+        }
+        
+    }
+    return true;
+}
  
 int main(int argc, const char * argv[]) {
     // insert code here...
@@ -332,7 +353,7 @@ int main(int argc, const char * argv[]) {
     
     cout<<" count of increasing subarray is " <<lis(arrDP, 8)<<endl;
     
-    /*int a = fun(8);
+    int a = fun(8);
     cout<< a<<"----";
     
     int arr[] = {10,20,30,40,50,60,70};
@@ -359,6 +380,9 @@ int main(int argc, const char * argv[]) {
      */
     
     remove_vowels();
+    cout<<endl;
+    string ustr = "date";
+    cout<<"Unique Characters?"<<endl<<unique_characters(ustr)<<endl;
     
     return 0;
 }
